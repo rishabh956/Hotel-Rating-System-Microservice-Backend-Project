@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/rishabh956/Config-Server
+          clone-on-start: true
+          skip-ssl-validation: true
+eureka:
+  instance:
+    hostname: localhost
+server:
+  port: 9090
