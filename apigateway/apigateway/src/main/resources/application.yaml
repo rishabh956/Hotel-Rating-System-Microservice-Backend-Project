@@ -5,11 +5,11 @@ spring:
       webflux:
        routes:
          - id: USERSERVICE
-           uri: lb://USERSERVICE
+           uri: lb://USER-SERVICE
            predicates:
             - Path=/users/**
          - id: RATINGSERVICE
-           uri: lb://RATINGSERVICE
+           uri: lb://RATING-SERVICE
            predicates:
             - Path=/rating/**
          - id: HOTEL-SERVICE

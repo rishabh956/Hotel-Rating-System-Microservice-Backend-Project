@@ -12,7 +12,7 @@ import com.Icwd.user.service.entities.Rating;
 
 
 @Service
-@FeignClient( name = "RATINGSERVICE")
+@FeignClient( name = "RATING-SERVICE")
 public interface RatingService {
 	
 	@GetMapping("/rating/user/{userId}")
