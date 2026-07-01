@@ -3,6 +3,7 @@ package com.Icwd.user.service.controlers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,7 @@ public class UserController {
 	@GetMapping("/{userId}")
 	@CircuitBreaker(name = "ratingHotelBreaker",fallbackMethod = "ratingHotelFallback")
 	//@Retry(name = "ratingHotelService", fallbackMethod = "ratingHotelFallback")
+	@Cacheable(value="user-cache",key="#userId")
 	public ResponseEntity<User> getOneUser(@PathVariable String userId)
 	{
 		

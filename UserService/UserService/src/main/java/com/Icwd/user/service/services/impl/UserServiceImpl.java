@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -71,6 +72,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Cacheable(value="user-cache",key="#userId")
 	public User getUserById(String userId) {
 		// TODO Auto-generated method stub
 		Optional<User> user = userServiceRepo.findById(userId) ;
