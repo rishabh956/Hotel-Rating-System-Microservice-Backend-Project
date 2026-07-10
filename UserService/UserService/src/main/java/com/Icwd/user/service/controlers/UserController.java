@@ -37,7 +37,6 @@ public class UserController {
 	@GetMapping("/{userId}")
 	@CircuitBreaker(name = "ratingHotelBreaker",fallbackMethod = "ratingHotelFallback")
 	//@Retry(name = "ratingHotelService", fallbackMethod = "ratingHotelFallback")
-	@Cacheable(value="user-cache",key="#userId")
 	public ResponseEntity<User> getOneUser(@PathVariable String userId)
 	{
 		

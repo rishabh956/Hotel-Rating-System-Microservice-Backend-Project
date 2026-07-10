@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: Rating-Service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: rating
+  config:
+    import:
+    - optional:configserver:http://localhost:9090
+  profiles:
+    active:
+    - prod
+server:
+  port: 8083
+
+
