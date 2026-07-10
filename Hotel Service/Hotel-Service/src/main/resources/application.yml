@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: Hotel-Service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hotelservice
+    username: postgres
+    password: postgres
+  config:
+   import: optional:configserver:http://localhost:9090
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  profiles:
+   active: prod
+server:
+ port: 8082
